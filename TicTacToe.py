@@ -21,12 +21,21 @@ while repeate.lower() == "y":
             player = 2
         print(f"Your turn player {player}")
 
-        choice = int(input("Enter your move (1-9): ").strip())
+        choice = input("Enter your move (1-9): ").strip()
+        while True:
+            try:
+                choice = int(choice)
+            except ValueError:
+                print("Your move should be an intenger from 1-9")
+                choice = input("Enter your move (1-9): ").strip()
+                continue
+            else:
+                break
 
-        while board[choice -1] != " ":
+        while board[choice - 1] != " ":
             print("That place is alrady taken")
             choice = int(input("Please enter another move (1-9): ").strip())
-        board[choice-1] = icon
+        board[choice - 1] = icon
 
     def is_victory(icon):
         if (board[0] == icon and board[1] == icon and board[2] == icon) or \
