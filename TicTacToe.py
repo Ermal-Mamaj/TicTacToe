@@ -35,17 +35,15 @@ while repeate.lower().startswith('y'):
         board[choice - 1] = icon
 
     def is_victory(icon):
-        if (board[0] and board[1] and board[2] == icon) or \
-           (board[3] and board[4] and board[5] == icon) or \
-           (board[6] and board[7] and board[8] == icon) or \
-           (board[0] and board[3] and board[6] == icon) or \
-           (board[1] and board[4] and board[7] == icon) or \
-           (board[2] and board[5] and board[8] == icon) or \
-           (board[0] and board[4] and board[8] == icon) or \
-           (board[2] and board[4] and board[6] == icon):
+        for i in range(0, 9, 3):
+            if board[i] == board[i + 1] == board[i + 2] == icon:
+                return True
+        for i in range(3):
+            if board[i] == board[i + 3] == board[i + 6] == icon:
+                return True
+        if board[0] == board[4] == board[8] == icon or board[2] == board[4] == board[6] == icon:
             return True
-        else:
-            return False
+        return False
 
     def is_draw():
         if ' ' not in board:
@@ -61,6 +59,7 @@ while repeate.lower().startswith('y'):
             print("X wins! Congratulations!")
             break
         elif is_draw():
+            print_board()
             print("It's a draw!")
             break
         player_move('O')
@@ -71,4 +70,4 @@ while repeate.lower().startswith('y'):
         elif is_draw():
             print("It's a draw!")
             break
-    repeate = input("\nDo u want to play again? y/n : ")
+    repeate = input("\nDo you want to play again? y/n : ")
