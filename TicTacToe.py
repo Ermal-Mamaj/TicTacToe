@@ -7,7 +7,7 @@ while repeate.lower().startswith('y'):
         row1 = "| {} | {} | {} |".format(board[0], board[1], board[2])
         row2 = "| {} | {} | {} |".format(board[3], board[4], board[5])
         row3 = "| {} | {} | {} |".format(board[6], board[7], board[8])
-        print("\n" ,row1,"\n",row2,"\n",row3,"\n")
+        print("\n", row1, "\n", row2, "\n", row3, "\n")
 
     def player_move(icon):
         if icon == 'X':
@@ -33,18 +33,20 @@ while repeate.lower().startswith('y'):
             else:
                 break
         board[choice - 1] = icon
+
     def is_victory(icon):
-        if (board[0] == icon and board[1] == icon and board[2] == icon) or \
-           (board[3] == icon and board[4] == icon and board[5] == icon) or \
-           (board[6] == icon and board[7] == icon and board[8] == icon) or \
-           (board[0] == icon and board[3] == icon and board[6] == icon) or \
-           (board[1] == icon and board[4] == icon and board[7] == icon) or \
-           (board[2] == icon and board[5] == icon and board[8] == icon) or \
-           (board[0] == icon and board[4] == icon and board[8] == icon) or \
-           (board[2] == icon and board[4] == icon and board[6] == icon):
+        if (board[0] and board[1] and board[2] == icon) or \
+           (board[3] and board[4] and board[5] == icon) or \
+           (board[6] and board[7] and board[8] == icon) or \
+           (board[0] and board[3] and board[6] == icon) or \
+           (board[1] and board[4] and board[7] == icon) or \
+           (board[2] and board[5] and board[8] == icon) or \
+           (board[0] and board[4] and board[8] == icon) or \
+           (board[2] and board[4] and board[6] == icon):
             return True
         else:
             return False
+
     def is_draw():
         if ' ' not in board:
             return True
