@@ -7,8 +7,8 @@ while repeate.lower().startswith('y'):
         row1 = "| {} | {} | {} |".format(board[0], board[1], board[2])
         row2 = "| {} | {} | {} |".format(board[3], board[4], board[5])
         row3 = "| {} | {} | {} |".format(board[6], board[7], board[8])
-
         print("\n" ,row1,"\n",row2,"\n",row3,"\n")
+
     def player_move(icon):
         if icon == 'X':
             player = 1
