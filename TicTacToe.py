@@ -25,6 +25,12 @@ while repeate.lower() == "y":
         while True:
             try:
                 choice = int(choice)
+                while choice > 9:
+                    print("Please enter a number betwen 1 and 9")
+                    choice = int(input("Please enter another move (1-9): ").strip())
+                while board[choice - 1] != " ":
+                    print("That place is alrady taken")
+                    choice = int(input("Please enter another move (1-9): ").strip())
             except ValueError:
                 print("Your move should be an intenger from 1-9")
                 choice = input("Enter your move (1-9): ").strip()
@@ -32,9 +38,7 @@ while repeate.lower() == "y":
             else:
                 break
 
-        while board[choice - 1] != " ":
-            print("That place is alrady taken")
-            choice = int(input("Please enter another move (1-9): ").strip())
+
         board[choice - 1] = icon
 
     def is_victory(icon):
