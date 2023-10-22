@@ -1,6 +1,6 @@
 repeate = "y"
 
-while repeate.lower() == "y":
+while repeate.lower().startswith('y'):
     board = [' ' for x in range(9)]
 
     def print_board():
@@ -26,7 +26,7 @@ while repeate.lower() == "y":
             try:
                 choice = int(choice)
                 while choice > 9:
-                    print("Please enter a number betwen 1 and 9")
+                    print("Please enter a number")
                     choice = int(input("Please enter another move (1-9): ").strip())
                 while board[choice - 1] != " ":
                     print("That place is alrady taken")
