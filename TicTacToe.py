@@ -8,12 +8,7 @@ while repeate.lower().startswith('y'):
         row2 = "| {} | {} | {} |".format(board[3], board[4], board[5])
         row3 = "| {} | {} | {} |".format(board[6], board[7], board[8])
 
-        print()
-        print(row1)
-        print(row2)
-        print(row3)
-        print()
-
+        print("\n" ,row1,"\n",row2,"\n",row3,"\n")
     def player_move(icon):
         if icon == 'X':
             player = 1
@@ -26,7 +21,7 @@ while repeate.lower().startswith('y'):
             try:
                 choice = int(choice)
                 while choice > 9:
-                    print("Please enter a number")
+                    print("Please enter a number smaller than 9")
                     choice = int(input("Please enter another move (1-9): ").strip())
                 while board[choice - 1] != " ":
                     print("That place is alrady taken")
@@ -37,10 +32,7 @@ while repeate.lower().startswith('y'):
                 continue
             else:
                 break
-
-
         board[choice - 1] = icon
-
     def is_victory(icon):
         if (board[0] == icon and board[1] == icon and board[2] == icon) or \
            (board[3] == icon and board[4] == icon and board[5] == icon) or \
@@ -53,7 +45,6 @@ while repeate.lower().startswith('y'):
             return True
         else:
             return False
-
     def is_draw():
         if ' ' not in board:
             return True
@@ -78,5 +69,4 @@ while repeate.lower().startswith('y'):
         elif is_draw():
             print("It's a draw!")
             break
-    input("")
-    repeate = input("Do u want to play again? y/n : ")
+    repeate = input("\nDo u want to play again? y/n : ")
